@@ -1,0 +1,120 @@
+/*
+Theme Name: Blockbase Child
+Template: blockbase
+Version: 1.0
+*/
+
+/* Mobile first — base styles outside any media query */
+
+/* Turns all text on the website white */
+body {
+    color: #ffffff;
+}
+
+/* Makes the nav links jump out */
+.wp-block-navigation .wp-block-navigation-item__label {
+	display: inline-block;
+	transition: transform 0.2s ease;
+}
+
+.wp-block-navigation .wp-block-navigation-item__label:hover {
+	transform: scale(1.1);
+}
+
+/* Hidden by default, everywhere */
+.nav-mobile-cta {
+	display: none !important;
+}
+
+/* Show only when the mobile menu is actually open */
+.wp-block-navigation__responsive-container.is-menu-open .nav-mobile-cta {
+	display: flex !important;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+	align-items: center;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container,
+.wp-block-navigation__responsive-container.is-menu-open .nav-mobile-cta {
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	text-align: center;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+	row-gap: 8px !important;
+}
+
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__container {
+	row-gap: 32px !important;
+}
+
+/* Below 1285px: hide desktop buttons, show hamburger, add extra links inside menu */
+@media (max-width: 1285px) {
+    .wp-block-buttons {
+        display: none;
+    }
+
+    .mobile-nav-extra {
+        display: flex;
+    }
+
+    .wp-block-navigation__responsive-container-open {
+        display: flex !important;
+    }
+
+    .wp-block-navigation__container.is-responsive {
+        display: none;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 1285px) {
+	nav.wp-block-navigation {
+		position: relative;
+	}
+
+	.wp-block-navigation__responsive-container-open {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+	}
+}
+
+@media (max-width: 1285px) {
+    .wp-block-navigation__responsive-container-open {
+        display: flex !important;
+        align-self: center;
+    }
+    .wp-block-navigation__container.is-responsive {
+        display: none;
+    }
+
+    .site-header-cta {
+		  display: none !important;
+	  }
+}
+
+@media (min-width: 1286px) {
+    .wp-block-navigation__responsive-container-open {
+        display: none !important;
+    }
+
+    .wp-block-navigation {
+      margin-left: auto;
+    }
+}
+
+@media (min-width: 600px) {
+  /* Tablet */
+}
+
+@media (min-width: 1024px) {
+  /* Desktop */
+}
+
+@media (min-width: 1280px) {
+  /* Large desktop */
+}
