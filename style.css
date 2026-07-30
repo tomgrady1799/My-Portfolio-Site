@@ -51,6 +51,70 @@ body {
 	row-gap: 32px !important;
 }
 
+/* Stacks the social icons vertically along the left edge */
+.hero-socials {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-socials a {
+  color: #fff;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.hero-socials a:hover {
+  opacity: 1;
+}
+
+/* Anchor point — lets the arrow position itself relative to
+   this column instead of the whole page */
+.hero-image-col {
+  position: relative;
+}
+
+/* The arrow + circle + label, grouped and centered vertically,
+   pinned just outside the right edge of the image column */
+.hero-arrow {
+  display: flex;
+  flex-direction: column;   /* stacks circle on top of label */
+  align-items: center;      /* centers them horizontally */
+  gap: 12px;                /* space between circle and label */
+  text-decoration: none;    /* removes underline since it's a link */
+  color: #fff;
+
+  position: absolute;       /* pulls it out of normal flow */
+  top: 50%;                 /* moves down to vertical middle... */
+  transform: translateY(-50%); /* ...then nudges back up by half its own height, for true centering */
+  right: -110px;            /* pushes it past the image's right edge */
+}
+
+/* The circle outline around the arrow icon */
+.hero-arrow__circle {
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 50%;       /* makes it a circle */
+  display: flex;
+  align-items: center;      /* centers the SVG arrow inside */
+  justify-content: center;
+  transition: background 0.2s ease; /* smooths the hover effect below */
+}
+
+/* Subtle fill on hover so it feels interactive */
+.hero-arrow:hover .hero-arrow__circle {
+  background: rgba(255,255,255,0.1);
+}
+
+/* "About Me" text under the circle */
+.hero-arrow__label {
+  font-size: 12px;
+  letter-spacing: 0.05em;   /* slight spacing for a cleaner look at small size */
+  opacity: 0.8;             /* softens it so the circle stays the focal point */
+}
+
 /* Below 1285px: hide desktop buttons, show hamburger, add extra links inside menu */
 @media (max-width: 1285px) {
     .wp-block-buttons {
