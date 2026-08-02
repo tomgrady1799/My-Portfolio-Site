@@ -6,9 +6,25 @@ Version: 1.0
 
 /* Mobile first — base styles outside any media query */
 
-/* Turns all text on the website white */
+/* Turns all text on the website white and enables footer to stick to bottom */
 body {
-    color: #ffffff;
+  color: #ffffff;
+}
+
+/* This is the real wrapper holding header, main, footer */
+.wp-site-blocks {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* fills the screen even on short pages */
+}
+
+/* Main content grows to fill leftover space,
+   pushing the footer down to the true bottom */
+.wp-site-blocks main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centers hero vertically in the available space */
 }
 
 /* Makes the nav links jump out */
@@ -51,12 +67,21 @@ body {
 	row-gap: 32px !important;
 }
 
-/* Stacks the social icons vertically along the left edge */
+/* Anchor point — lets the socials column center itself against this column's height */
+.hero-text-col {
+  position: relative;
+}
+
+/* Stacks the social icons vertically, pinned to the vertical center of .hero-text-col */
 .hero-socials {
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .hero-socials a {
@@ -115,6 +140,45 @@ body {
   opacity: 0.8;             /* softens it so the circle stays the focal point */
 }
 
+/* 782px–900px: columns still side-by-side, so keep icons
+   behaving like desktop (anchored to their column) */
+@media (max-width: 900px) and (min-width: 782px) {
+
+  .hero-arrow {
+    position: static;
+    transform: none;
+    margin: 20px auto 0;
+  }
+
+}
+
+/* Below 782px: WordPress stacks columns vertically here,
+   so icons switch to fixed positioning at the page edge */
+@media (max-width: 781px) {
+
+  .hero-socials {
+    position: fixed;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+  }
+
+  main {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  .hero-arrow {
+    position: static;
+    transform: none;
+    margin: 20px auto 0;
+  }
+
+}
+
 /* Below 1285px: hide desktop buttons, show hamburger, add extra links inside menu */
 @media (max-width: 1285px) {
     .wp-block-buttons {
@@ -169,16 +233,4 @@ body {
     .wp-block-navigation {
       margin-left: auto;
     }
-}
-
-@media (min-width: 600px) {
-  /* Tablet */
-}
-
-@media (min-width: 1024px) {
-  /* Desktop */
-}
-
-@media (min-width: 1280px) {
-  /* Large desktop */
 }
