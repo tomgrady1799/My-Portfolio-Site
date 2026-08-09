@@ -11,6 +11,10 @@ body {
   color: #ffffff;
 }
 
+main {
+  zoom: 1.15; /* 15% bigger — text, images, spacing, buttons, everything scales together */
+}
+
 /* This is the real wrapper holding header, main, footer */
 .wp-site-blocks {
   display: flex;
@@ -94,50 +98,85 @@ body {
   opacity: 1;
 }
 
-/* Anchor point — lets the arrow position itself relative to
-   this column instead of the whole page */
 .hero-image-col {
-  position: relative;
+  position: relative !important;
 }
 
-/* The arrow + circle + label, grouped and centered vertically,
-   pinned just outside the right edge of the image column */
+.hero-image-col > .wp-block-group {
+  position: absolute !important;
+  top: calc(50% + 40px);
+  transform: translateY(-50%);
+  right: -110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
 .hero-arrow {
   display: flex;
-  flex-direction: column;   /* stacks circle on top of label */
-  align-items: center;      /* centers them horizontally */
-  gap: 12px;                /* space between circle and label */
-  text-decoration: none;    /* removes underline since it's a link */
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
   color: #fff;
-
-  position: absolute;       /* pulls it out of normal flow */
-  top: 50%;                 /* moves down to vertical middle... */
-  transform: translateY(-50%); /* ...then nudges back up by half its own height, for true centering */
-  right: -110px;            /* pushes it past the image's right edge */
 }
 
-/* The circle outline around the arrow icon */
 .hero-arrow__circle {
   width: 80px;
   height: 80px;
   border: 1px solid rgba(255,255,255,0.4);
-  border-radius: 50%;       /* makes it a circle */
+  border-radius: 50%;
   display: flex;
-  align-items: center;      /* centers the SVG arrow inside */
+  align-items: center;
   justify-content: center;
-  transition: background 0.2s ease; /* smooths the hover effect below */
+  transition: background 0.2s ease;
 }
 
-/* Subtle fill on hover so it feels interactive */
 .hero-arrow:hover .hero-arrow__circle {
   background: rgba(255,255,255,0.1);
 }
 
-/* "About Me" text under the circle */
 .hero-arrow__label {
   font-size: 12px;
-  letter-spacing: 0.05em;   /* slight spacing for a cleaner look at small size */
-  opacity: 0.8;             /* softens it so the circle stays the focal point */
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+.hero-arrow-back {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: background 0.2s ease;
+}
+
+.hero-arrow-back:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.hero-arrow-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  color: inherit;
+  opacity: 0.6;
+  text-decoration: none;
+  margin: 0 auto 8px;
+}
+
+.hero-arrow-back:hover {
+  opacity: 1;
 }
 
 .personal-details-table table {
@@ -193,8 +232,6 @@ body {
 
 }
 
-/* Below 782px: WordPress stacks columns vertically here,
-   so icons switch to fixed positioning at the page edge */
 @media (max-width: 781px) {
 
   .hero-socials {
@@ -212,11 +249,63 @@ body {
     padding-right: 50px;
   }
 
-  .hero-arrow {
-    position: static;
-    transform: none;
+
+  .hero-image-col > .wp-block-group {
+    position: static !important;
+    transform: none !important;
+    right: auto !important;
+    top: auto !important;
     margin: 20px auto 0;
   }
+
+
+  /* Kill the flex gap WordPress uses to space stacked columns */
+  .wp-block-columns {
+    row-gap: 0 !important;
+  }
+
+  .hero-text-col {
+    margin-bottom: 7px !important;
+  }
+
+  .hero-image-col {
+    margin-top: 7px !important;
+  }
+
+  .hero-expertise-image {
+    width: 100%;
+    height: auto;
+    margin: 0 0 24px 0 !important; /* top fully zeroed, bottom gap kept */
+  }
+
+  .personal-details-table table,
+  .personal-details-table tbody,
+  .personal-details-table tr {
+    display: block;
+    width: 100% !important;
+  }
+
+  .personal-details-table td,
+  .personal-details-table td:nth-child(odd),
+  .personal-details-table td:nth-child(even) {
+    display: block;
+    width: 100% !important;
+    white-space: normal;
+    word-break: normal;
+    text-align: center;
+  }
+
+  .personal-details-table td:nth-child(odd) {
+    padding-top: 20px;
+    padding-bottom: 0;
+    padding-right: 0;
+  }
+
+  .personal-details-table td:nth-child(even) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
 
 }
 
