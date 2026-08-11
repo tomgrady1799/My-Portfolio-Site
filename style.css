@@ -220,6 +220,10 @@ main {
   margin-top: 70px !important; /* adjust up/down until it sits where you want */
 }
 
+.exp-divider {
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 /* 782px–900px: columns still side-by-side, so keep icons
    behaving like desktop (anchored to their column) */
 @media (max-width: 900px) and (min-width: 782px) {
@@ -257,7 +261,6 @@ main {
     top: auto !important;
     margin: 20px auto 0;
   }
-
 
   /* Kill the flex gap WordPress uses to space stacked columns */
   .wp-block-columns {
@@ -306,6 +309,24 @@ main {
     padding-bottom: 0;
   }
 
+  .exp-divider {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 2rem;
+    padding-left: 0 !important;
+  }
+
+  .experience-section .has-text-align-center {
+    text-align: left;
+  }
+
+  .experience-section h1.has-text-align-center {
+    text-align: center;
+  }
+
+  .experience-section p.section-number {
+    text-align: center;
+  }
 
 }
 
