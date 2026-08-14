@@ -224,6 +224,44 @@ main {
   border-left: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.skills-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.skills-heading {
+  font-size: 18px;
+  font-weight: 400;
+  color: #f4f4f2;
+  margin: 0 0 20px;
+}
+.skill-item {
+  margin-bottom: 22px;
+}
+.skill-name {
+  font-size: 14px;
+  color: #e4e6e2;
+  margin-bottom: 8px;
+}
+.skill-track {
+  position: relative;
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.1); /* lightened tint of whatever bg sits behind it */
+  overflow: hidden;
+}
+.skill-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: width 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /* 782px–900px: columns still side-by-side, so keep icons
    behaving like desktop (anchored to their column) */
 @media (max-width: 900px) and (min-width: 782px) {

@@ -57,3 +57,17 @@ function blockbase_child_editor_styles() {
 	add_editor_style( 'style.css' );
 }
 add_action( 'after_setup_theme', 'blockbase_child_editor_styles' );
+
+/**
+ * Enqueue the skills bars script.
+ */
+function tg_enqueue_skills_script() {
+    wp_enqueue_script(
+        'tg-skills-bars',
+        get_stylesheet_directory_uri() . '/assets/js/skills-bars.js',
+        array(),
+        '1.0',
+        true
+    );
+}
+add_action( 'wp_enqueue_scripts', 'tg_enqueue_skills_script' );
