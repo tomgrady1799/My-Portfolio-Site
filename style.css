@@ -78,6 +78,10 @@ main {
 /* Anchor point — lets the socials column center itself against this column's height */
 .hero-text-col {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
 }
 
 /* Stacks the social icons vertically, pinned to the vertical center of .hero-text-col */
@@ -232,6 +236,37 @@ main {
   font-weight: 400;
   opacity: 0.9;
   white-space: nowrap;
+}
+
+.detail-row {
+  gap: 8px;
+  align-items: baseline;
+}
+
+.detail-label {
+  color: #ffffff;
+  margin: 0;
+}
+
+.wp-block-columns .wp-block-column:nth-child(1) .detail-label {
+  min-width: 90px;
+}
+
+.wp-block-columns .wp-block-column:nth-child(2) .detail-label {
+  min-width: 60px;
+}
+
+.detail-value {
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+}
+
+.personal-details-table {
+  margin-top: 40px;
+}
+
+.personal-details-table .wp-block-spacer {
+  height: 16px !important;
 }
 
 .hero-expertise-image {
@@ -472,6 +507,7 @@ main {
   padding-right: 24px;
   box-sizing: border-box;
 }
+/*
 
 .hero-text-col,
 .personal-details-table,
@@ -479,6 +515,8 @@ main {
   opacity: 0;
   transition: opacity 0.6s ease;
 }
+
+*/  
 
 .hero-text-col.is-visible,
 .personal-details-table.is-visible,

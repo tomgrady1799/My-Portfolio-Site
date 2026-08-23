@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', function () {
   if (heroText) {
     setTimeout(function () {
       heroText.classList.add('is-visible');
-    }, 500);
+    }, 300);
   }
 
   if (table) {
     setTimeout(function () {
       table.classList.add('is-visible');
-    }, 700);
+    }, 500);
   }
 
   if (homeImages.length) {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
       homeImages.forEach(function (el) {
         el.classList.add('is-visible');
       });
-    }, 700);
+    }, 500);
   }
 });
 
