@@ -41,6 +41,10 @@ main {
 	transform: scale(1.1);
 }
 
+.wp-block-navigation__container {
+	column-gap: 80px;
+}
+
 /* Hidden by default, everywhere */
 .nav-mobile-cta {
 	display: none !important;
@@ -103,6 +107,21 @@ main {
 }
 
 .hero-image-col > .wp-block-group {
+  position: absolute !important;
+  top: calc(50% + 40px);
+  transform: translateY(-50%);
+  right: -110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.skills-page {
+  position: relative !important;
+}
+
+.skills-page > .wp-block-group {
   position: absolute !important;
   top: calc(50% + 40px);
   transform: translateY(-50%);
@@ -262,6 +281,308 @@ main {
   transition: width 1.1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ===== Portfolio grid cards ===== */
+.wp-block-post-template > li,
+.wp-block-post-template > .wp-block-post {
+  transition: transform 0.3s ease;
+}
+.wp-block-post-template > li:hover,
+.wp-block-post-template > .wp-block-post:hover {
+  transform: translateY(-6px);
+}
+
+.wp-block-post-featured-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 20px !important;
+}
+
+.wp-block-post-featured-image:hover img {
+  transform: scale(1.05);
+}
+
+.wp-block-post-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+.wp-block-post-title a {
+  position: relative;
+  color: #f4f4f2;
+  text-decoration: none;
+}
+.wp-block-post-title a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+.wp-block-post-title a:hover::after {
+  width: 100%;
+}
+
+/* ===== Single project page ===== */
+.single-project .wp-block-post-featured-image {
+  border-radius: 12px;
+  margin-bottom: 36px;
+}
+.single-project .wp-block-post-title {
+  font-size: 42px;
+  margin-bottom: 24px;
+}
+.single-project .entry-content p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #e4e6e2;
+  max-width: 700px;
+}
+
+.single-project main {
+  max-width: 900px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
+}
+
+.single-project .wp-block-columns {
+  justify-content: center !important;
+  max-width: 1200px;
+  width: fit-content;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.single-project .wp-block-column {
+  align-items: center !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.single-project .wp-block-post-featured-image,
+.single-project img {
+  display: block;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.single-project .wp-block-post-featured-image {
+  margin: 0 !important;
+}
+
+.single-project .wp-block-columns img {
+  width: 100%;
+  aspect-ratio: 2.1 / 1;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: transform 0.5s ease;
+}
+
+.single-project .wp-block-columns img:hover {
+  transform: scale(1.05);
+}
+
+.single-project .wp-block-columns img.project-performance-image {
+  aspect-ratio: 1.8 / 1 !important;
+}
+
+.single-project h1,
+.single-project h2,
+.single-project p {
+  text-align: center;
+}
+
+.single-project .project-tech-stack {
+  justify-content: center;
+}
+
+.single-project .entry-content.wp-block-post-content > p {
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* tech stack as pills instead of bullets */
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 40px;
+}
+.project-tech-stack li {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #e4e6e2;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.project-performance-image {
+  max-width: 520px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 8px;
+}
+
+.portfolio-row {
+  gap: 16px;
+}
+
+.portfolio-row > .wp-block-column:nth-child(1),
+.portfolio-row > .wp-block-column:nth-child(3) {
+  flex-basis: 90px !important;
+  flex-grow: 0 !important;
+}
+
+.portfolio-row > .wp-block-column:nth-child(2) {
+  flex-basis: 95% !important;
+  flex-grow: 1 !important;
+}
+
+.wp-block-post-featured-image img {
+  transition: transform 0.5s ease;
+  display: block;
+  width: 100%;
+  aspect-ratio: 2.1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.wp-block-post-template {
+  gap: 40px !important;
+}
+
+.wp-block-post-title {
+  font-size: 26px;
+}
+
+.entry-content.wp-block-post-content {
+  max-width: 1500px !important;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+.hero-text-col,
+.personal-details-table,
+.hero-image-col {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.hero-text-col.is-visible,
+.personal-details-table.is-visible,
+.hero-image-col.is-visible {
+  opacity: 1;
+}
+
+/* Overall spacing */
+
+body.page-id-334 .entry-content.wp-block-post-content {
+  max-width: 700px !important;
+  width: 100% !important;
+}
+
+body.page-id-334 .wpforms-container.wpforms-container-full {
+  max-width: 700px !important;
+  margin: 0 auto !important;
+}
+
+body.page-id-334 .wpforms-field-label,
+body.page-id-334 .wpforms-submit-container {
+  text-align: center !important;
+}
+
+body.page-id-334 .wpforms-field-label {
+  color: #ffffff !important;
+}
+
+.wpforms-container .wpforms-field-container .wpforms-field-medium {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.wpforms-container .wpforms-field-container .wpforms-field {
+  max-width: 100% !important;
+}
+
+.wpforms-container .wpforms-field {
+  padding: 0 !important;
+  margin-bottom: 28px !important;
+}
+
+/* Labels - small, muted caption instead of bold heading */
+.wpforms-container .wpforms-field-label,
+.wpforms-container legend.wpforms-field-label {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  margin-bottom: 6px !important;
+}
+
+.wpforms-container .wpforms-required-label {
+  color: #ffffff !important;
+}
+
+/* Inputs & textarea - transparent, underline only */
+.wpforms-container input[type="text"],
+.wpforms-container input[type="email"],
+.wpforms-container textarea {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 0 !important;
+  color: #ffffff !important;
+  padding: 8px 2px !important;
+  font-size: 16px !important;
+  width: 100% !important;
+  transition: border-color 0.3s ease;
+}
+
+.wpforms-container input[type="text"]:focus,
+.wpforms-container input[type="email"]:focus,
+.wpforms-container textarea:focus {
+  outline: none !important;
+  border-bottom-color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.wpforms-container textarea {
+  min-height: 90px !important;
+  resize: vertical;
+}
+
+/* Submit button - pill shape */
+.wpforms-container button.wpforms-submit {
+  background: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  border-radius: 999px !important;
+  padding: 12px 32px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+}
+
+.wpforms-container button.wpforms-submit:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: #ffffff !important;
+}
+
+.wpforms-submit-container {
+  text-align: right !important;
+  margin-top: 20px !important;
+}
+
 /* 782px–900px: columns still side-by-side, so keep icons
    behaving like desktop (anchored to their column) */
 @media (max-width: 900px) and (min-width: 782px) {
@@ -364,6 +685,18 @@ main {
 
   .experience-section p.section-number {
     text-align: center;
+  }
+
+  .skills-page > .wp-block-group {
+    position: static !important;
+    transform: none !important;
+    right: auto !important;
+    top: auto !important;
+    margin: 20px auto 0;
+  }
+
+  .skills-page {
+    margin-top: 7px !important;
   }
 
 }

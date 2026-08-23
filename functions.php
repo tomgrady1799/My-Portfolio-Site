@@ -71,3 +71,57 @@ function tg_enqueue_skills_script() {
     );
 }
 add_action( 'wp_enqueue_scripts', 'tg_enqueue_skills_script' );
+
+function tg_register_project_post_type() {
+    register_post_type( 'project', array(
+        'labels' => array(
+            'name'          => 'Projects',
+            'singular_name' => 'Project',
+            'add_new_item'  => 'Add New Project',
+        ),
+        'public'       => true,
+        'has_archive'  => false,
+        'show_in_rest' => true,
+        'menu_icon'    => 'dashicons-portfolio',
+        'supports'     => array( 'title', 'editor', 'thumbnail' ),
+        'rewrite'      => array( 'slug' => 'projects' ), 
+    ) );
+}
+add_action( 'init', 'tg_register_project_post_type' );
+
+function tg_project_tech_stack_shortcode() {
+    $tech = get_field( 'tech_stack' );
+    if ( ! $tech ) return '';
+    $items = array_map( 'trim', explode( ',', $tech ) );
+    $html = '<ul class="project-tech-stack">';
+    foreach ( $items as $item ) {
+        $html .= '<li>' . esc_html( $item ) . '</li>';
+    }
+    $html .= '</ul>';
+    return $html;
+}
+add_shortcode( 'project_tech_stack', 'tg_project_tech_stack_shortcode' );
+
+function tg_project_performance_shortcode() {
+    $image = get_field( 'performance_image' );
+    if ( ! $image ) return '';
+    return '<img src="' . esc_url( $image['url'] ) . '" alt="' . esc_attr( $image['alt'] ) . '" class="project-performance-image" />';
+}
+add_shortcode( 'project_performance', 'tg_project_performance_shortcode' );
+
+
+wp_enqueue_script(
+    'tg-portfolio-reveal',
+    get_stylesheet_directory_uri() . '/assets/js/portfolio-reveal.js',
+    array(),
+    '1.0',
+    true
+);
+
+wp_enqueue_script(
+    'tg-fade-in',
+    get_stylesheet_directory_uri() . '/assets/js/fade-in.js',
+    array(),
+    '1.0',
+    true
+);
