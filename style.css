@@ -527,14 +527,15 @@ main {
   box-sizing: border-box;
 }
 
-/* 
+
 .hero-text-col,
 .personal-details-table,
 .hero-image-col {
   opacity: 0;
   transition: opacity 0.6s ease;
 }
-/*
+
+
 
 .hero-text-col.is-visible,
 .personal-details-table.is-visible,
@@ -639,35 +640,99 @@ body.page-id-334 .wpforms-field-label {
   margin-top: 20px !important;
 }
 
+.home {
+  margin-top: -80px !important;
+}
+.about {
+  margin-top: -30px !important;
+}
+.experience {
+  margin-top: -45px !important;
+}
+.skills {
+  margin-top: -30px !important;
+}
+
+.personal-details-table-mobile {
+  display: none !important;
+}
+
+@media (max-width: 999px) {
+  .home,
+  .about,
+  .experience,
+  .skills {
+    margin-top: 0 !important;
+  }
+
+  .hero-socials {
+    position: absolute;
+    top: -20px;
+    right: 10px;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    flex-direction: row;
+    gap: 12px;
+    z-index: 20;
+  }
+}
+
 /* 782px–900px: columns still side-by-side, so keep icons
    behaving like desktop (anchored to their column) */
-@media (max-width: 900px) and (min-width: 782px) {
 
+
+@media (max-width: 1070px) and (min-width: 782px) {
+  
   .hero-arrow {
     position: static;
     transform: none;
-    margin: 20px auto 0;
+    margin: 24px auto !important;
   }
 
+  .hero-arrow {
+    margin: 24px !important;
+  }
+  .a.hero-arrow {
+    margin: 24px !important;
+  }
+
+  .hero-image-col > .wp-block-group {
+    margin-right: -10px;
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 782px) {
+  .home .hero-text-col,
+  .home .hero-image-col,
+  .about .hero-text-col,
+  .about .hero-image-col,
+  .skills .skills-page,
+  .experience .hero-text-col,
+  .experience .hero-image-col {
+    margin-top: 110px;
+  }
 }
 
 @media (max-width: 781px) {
-
-  .hero-socials {
-    position: fixed;
-    left: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    flex-direction: column;
-    align-items: center;
-    z-index: 10;
-  }
 
   main {
     padding-left: 50px;
     padding-right: 50px;
   }
 
+  .personal-details-table {
+    display: none !important;
+  }
+
+  .personal-details-table-mobile {
+    display: block !important;
+  }
+
+  body.page-id-334 .wpforms-container.wpforms-container-full {
+    max-width: 700px !important;
+    margin-top: 50px !important;
+  }
 
   .hero-image-col > .wp-block-group {
     position: static !important;
@@ -694,34 +759,6 @@ body.page-id-334 .wpforms-field-label {
     width: 100%;
     height: auto;
     margin: 0 0 24px 0 !important; /* top fully zeroed, bottom gap kept */
-  }
-
-  .personal-details-table table,
-  .personal-details-table tbody,
-  .personal-details-table tr {
-    display: block;
-    width: 100% !important;
-  }
-
-  .personal-details-table td,
-  .personal-details-table td:nth-child(odd),
-  .personal-details-table td:nth-child(even) {
-    display: block;
-    width: 100% !important;
-    white-space: normal;
-    word-break: normal;
-    text-align: center;
-  }
-
-  .personal-details-table td:nth-child(odd) {
-    padding-top: 20px;
-    padding-bottom: 0;
-    padding-right: 0;
-  }
-
-  .personal-details-table td:nth-child(even) {
-    padding-top: 0;
-    padding-bottom: 0;
   }
 
   .exp-divider {
