@@ -678,6 +678,16 @@ body.page-id-334 .wpforms-field-label {
   }
 }
 
+@media (max-height: 450px) {
+  main {
+    padding-top: 25px;
+  }
+
+  .hero-socials {
+    margin-top: -12px !important;
+  }
+}
+
 /* 782px–900px: columns still side-by-side, so keep icons
    behaving like desktop (anchored to their column) */
 
